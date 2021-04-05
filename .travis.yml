@@ -1,3 +1,6 @@
+branches:
+  only:
+    - main
 dist: xenial
 language: node_js
 node_js:
@@ -14,5 +17,4 @@ install:
   npm install --dev
 script:
   - npm run lint
-  - npm run test:single
-  - npm run test:subdomain
+  - npm run test:title

@@ -1,8 +1,4 @@
-export default class TrimPhp {
-  lTrim(str: string, charList?: string): string;
-  rTrim(str: string, charList?: string): string;
-  trim(str: string, charList?: string): string;
-}
+import { Remarkable } from 'remarkable';
 
 type imageOptions = [
   'title'
@@ -12,10 +8,7 @@ type linkOptions = [
   'title'
 ];
 
-type rendererOptions = {
-  rules: {};
-  getBreak?: {};
-};
+export declare function remarkableSeo(md: Remarkable, options?: configOptions): void;
 
 export type configOptions = {
   image?: imageOptions | [];
@@ -25,13 +18,4 @@ export type configOptions = {
 export type defaultOptions = {
   image: imageOptions;
   link: linkOptions;
-};
-
-export type remarkableOptions = {
-  inline: {};
-  block: {};
-  core: {};
-  renderer: rendererOptions;
-  ruler: {};
-  options: {};
 };

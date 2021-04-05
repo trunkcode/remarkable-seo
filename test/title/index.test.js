@@ -21,8 +21,8 @@ Attached images:
 1. ![Stormtroopocat](https://octodex.github.com/images/stormtroopocat.jpg "The Stormtroopocat")
 `;
 
-describe('Test `title` attribute', function() {
-  it('Add `title` attribute on link(s) and image(s) where missing', function() {
+describe('Test `title` attribute', () => {
+  it('Add `title` attribute on link(s) and image(s) where missing', () => {
     const expectedOutput = fs.readFileSync(
       path.resolve(__dirname, 'expected-output/all.html'),
       'utf8',
@@ -40,7 +40,7 @@ describe('Test `title` attribute', function() {
     assert.strictEqual(md.render(testString), expectedOutput);
   });
 
-  it('Add `title` attribute on image(s) where missing', function() {
+  it('Add `title` attribute on image(s) where missing', () => {
     const expectedOutput = fs.readFileSync(
       path.resolve(__dirname, 'expected-output/image.html'),
       'utf8',
@@ -60,7 +60,7 @@ describe('Test `title` attribute', function() {
     assert.strictEqual(md.render(testString), expectedOutput);
   });
 
-  it('Add `title` attribute on link(s) where missing', function() {
+  it('Add `title` attribute on link(s) where missing', () => {
     const expectedOutput = fs.readFileSync(
       path.resolve(__dirname, 'expected-output/link.html'),
       'utf8',

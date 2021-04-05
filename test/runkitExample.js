@@ -1,6 +1,6 @@
 'use strict';
 
-const {Remarkable} = require('remarkable');
+const { Remarkable } = require('remarkable');
 const remarkableSeo = require('remarkable-seo');
 const md = new Remarkable();
 
@@ -18,7 +18,6 @@ Attached images:
 1. ![Manufacturetocat](https://octodex.github.com/images/manufacturetocat.png)
 1. ![Stormtroopocat](https://octodex.github.com/images/stormtroopocat.jpg "The Stormtroopocat")
 `;
-
 
 md.use(remarkableSeo);
 
