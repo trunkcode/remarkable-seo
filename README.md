@@ -1,8 +1,9 @@
 # remarkable-seo
 
-[![Build Status][travis-image]][travis-url]
 [![NPM version][npm-image]][npm-url]
 [![Downloads][downloads-image]][npm-url]
+[![Build Status][travis-image]][travis-url]
+[![AppVeyor Build Status][appveyor-image]][appveyor-url]
 
 [Remarkable](https://www.npmjs.com/package/remarkable) plugin adds `title` attribute on link and image tags.
 
@@ -93,5 +94,9 @@ const siteConfig = {
 [npm-image]: https://img.shields.io/npm/v/remarkable-seo.svg
 [npm-url]: https://www.npmjs.com/package/remarkable-seo
 [downloads-image]: https://img.shields.io/npm/dt/remarkable-seo.svg
+
 [travis-image]: https://api.travis-ci.org/trunkcode/remarkable-seo.svg?branch=main
 [travis-url]: https://travis-ci.org/trunkcode/remarkable-seo
+
+[appveyor-url]: https://ci.appveyor.com/project/trunkcode/remarkable-seo
+[appveyor-image]: https://img.shields.io/appveyor/ci/trunkcode/remarkable-seo.svg?label=appveyor
