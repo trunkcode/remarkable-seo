@@ -10,6 +10,7 @@ import { Remarkable } from 'remarkable';
 const remarkableSeo = (md: Remarkable, options?: types.configOptions): void => {
   // Remarkable.
   const defaultOptions: types.defaultOptions = {
+    'download': true,
     'image': [
       'title'
     ],
@@ -33,24 +34,36 @@ const remarkableSeo = (md: Remarkable, options?: types.configOptions): void => {
     };
   }
 
-  if (config.link && config.link.includes('title')) {
+  if ((config.link && config.link.includes('title')) || config.download) {
     const defaultLinkRender = md.renderer.rules.link_open;
 
     // eslint-disable-next-line camelcase
     md.renderer.rules.link_open = (tokens: Remarkable.LinkOpenToken[], idx: number, ...args: []) => {
+      let downloadAttr: boolean = false;
       tokens.map((token: Remarkable.LinkOpenToken) => {
-        if (token && token.title === '') {
-          const linkTextId = idx + 1;
-          if (tokens[linkTextId]) {
-            const linkContent: Remarkable.ContentToken = tokens[linkTextId];
-            if (linkContent.type === 'text') {
-              token.title = linkContent.content;
+        if (token) {
+          if (token.title === '' || token.title === 'download') {
+            const linkTextId = idx + 1;
+            if (config.download && token.title === 'download') {
+              downloadAttr = true;
+            }
+
+            if (tokens[linkTextId]) {
+              const linkContent: Remarkable.ContentToken = tokens[linkTextId];
+              if (linkContent.type === 'text') {
+                token.title = linkContent.content;
+              }
             }
           }
         }
       });
 
-      return defaultLinkRender(tokens, idx, ...args);
+      let result: string = defaultLinkRender(tokens, idx, ...args);
+      if (downloadAttr) {
+        result = result.replace('>', ' download>');
+      }
+
+      return result;
     };
   }
 }

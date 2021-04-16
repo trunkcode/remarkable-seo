@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const remarkableSeo = (md, options) => {
     const defaultOptions = {
+        'download': true,
         'image': [
             'title'
         ],
@@ -21,21 +22,31 @@ const remarkableSeo = (md, options) => {
             return defaultImageRender(tokens, idx, ...args);
         };
     }
-    if (config.link && config.link.includes('title')) {
+    if ((config.link && config.link.includes('title')) || config.download) {
         const defaultLinkRender = md.renderer.rules.link_open;
         md.renderer.rules.link_open = (tokens, idx, ...args) => {
+            let downloadAttr = false;
             tokens.map((token) => {
-                if (token && token.title === '') {
-                    const linkTextId = idx + 1;
-                    if (tokens[linkTextId]) {
-                        const linkContent = tokens[linkTextId];
-                        if (linkContent.type === 'text') {
-                            token.title = linkContent.content;
+                if (token) {
+                    if (token.title === '' || token.title === 'download') {
+                        const linkTextId = idx + 1;
+                        if (config.download && token.title === 'download') {
+                            downloadAttr = true;
+                        }
+                        if (tokens[linkTextId]) {
+                            const linkContent = tokens[linkTextId];
+                            if (linkContent.type === 'text') {
+                                token.title = linkContent.content;
+                            }
                         }
                     }
                 }
             });
-            return defaultLinkRender(tokens, idx, ...args);
+            let result = defaultLinkRender(tokens, idx, ...args);
+            if (downloadAttr) {
+                result = result.replace('>', ' download>');
+            }
+            return result;
         };
     }
 };

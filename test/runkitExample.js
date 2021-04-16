@@ -11,6 +11,7 @@ Links to test Title:
 * [Example](http://example.com)
 * [Google](https://google.com)
 * [Facebook](https://facebook.com "Facebook page")
+* [Download Minion](https://octodex.github.com/images/minion.png "download")
 
 Attached images:
 
