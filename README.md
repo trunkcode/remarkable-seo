@@ -5,7 +5,7 @@
 [![Build Status][travis-image]][travis-url]
 [![AppVeyor Build Status][appveyor-image]][appveyor-url]
 
-[Remarkable](https://www.npmjs.com/package/remarkable) plugin adds `title` attribute on link and image tags.
+[Remarkable](https://www.npmjs.com/package/remarkable) plugin adds `title` attribute on URL and image tags and `download` attribute on URL if `title` set to `download`.
 
 ## Install
 
