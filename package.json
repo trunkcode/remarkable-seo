@@ -1,7 +1,7 @@
 {
   "name": "remarkable-seo",
-  "description": "Remarkable plugin adds `title` attribute on link and image tags.",
-  "version": "1.0.0",
+  "description": "Remarkable plugin adds `title` attribute on URL and image tags and `download` attribute on URL if `title` set to `download`.",
+  "version": "1.1.0",
   "main": "index.js",
   "types": "types/index.d.ts",
   "files": [

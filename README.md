@@ -96,8 +96,8 @@ const siteConfig = {
 [npm-url]: https://www.npmjs.com/package/remarkable-seo
 [downloads-image]: https://img.shields.io/npm/dt/remarkable-seo.svg
 
-[travis-image]: https://api.travis-ci.org/trunkcode/remarkable-seo.svg?branch=main
-[travis-url]: https://travis-ci.org/trunkcode/remarkable-seo
+[travis-image]: https://api.travis-ci.com/trunkcode/remarkable-seo.svg?branch=main
+[travis-url]: https://travis-ci.com/trunkcode/remarkable-seo
 
 [appveyor-url]: https://ci.appveyor.com/project/trunkcode/remarkable-seo
 [appveyor-image]: https://img.shields.io/appveyor/ci/trunkcode/remarkable-seo.svg?label=appveyor
