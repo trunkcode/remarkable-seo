@@ -1,5 +1,3 @@
-'use strict';
-
 const { Remarkable } = require('remarkable');
 const remarkableSeo = require('remarkable-seo');
 const md = new Remarkable();
